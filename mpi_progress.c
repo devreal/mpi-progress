@@ -530,6 +530,7 @@ static char *lock_type;
     uint64_t reps;              \
     MPI_Barrier(MPI_COMM_WORLD); \
     reps = _op(_win, _type, _rank, _target); \
+    MPI_Barrier(MPI_COMM_WORLD); \
     clock_gettime(CLOCK_REALTIME, &start); \
     reps = _op(_win, _type, _rank, _target); \
     clock_gettime(CLOCK_REALTIME, &end); \
